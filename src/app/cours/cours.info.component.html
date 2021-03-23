@@ -1,0 +1,54 @@
+<h2> Details du Cours</h2>
+
+<hr/>
+
+<form #coursForm="ngForm" *ngIf="cours">
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Name</label>    
+        <div class="col-sm-10">
+            <input [(ngModel)]="cours.name" required name="name" #coursName="ngModel" [ngClass]="{'is-invalid': coursName.invalid}" class="form-control"/>
+            <div class="invalid-feedback">
+                <span> Course name is required</span>
+            </div>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Name</label>    
+        <div class="col-sm-10">
+            <input [(ngModel)]="cours.price" required name="price" #coursPrix="ngModel" [ngClass]="{'is-invalid': coursPrix.invalid}" type="number" class="form-control"/>
+            <div class="invalid-feedback">
+                <span> Course price is required</span>
+            </div>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Rating</label>    
+        <div class="col-sm-10">
+            <input [(ngModel)]="cours.rating" required name="rating" #coursRating="ngModel" [ngClass]="{'is-invalid': coursRating.invalid}" type="number" class="form-control"/>
+            <div class="invalid-feedback">
+                <span> Course rating is required</span>
+            </div>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Rating</label>    
+        <div class="col-sm-10">
+            <textarea 
+            [(ngModel)]="cours.description" 
+            required name="Description" 
+            #coursDescription="ngModel" 
+            [ngClass]="{'is-invalid': coursDescription.invalid}" 
+            type="text" 
+            class="form-control">
+            </textarea>
+            <div class="invalid-feedback">
+                <span> Course description is required</span>
+            </div>
+        </div>
+
+        <button [disabled]="coursForm.invalid" (click)="save()" class="btn btn-primary mr-2">Save</button>
+        <button [routerLink]="['/cours']" class="btn btn-secundary mr-2">Back</button>
+        
+    
+    </div>
+
+
+</form>
